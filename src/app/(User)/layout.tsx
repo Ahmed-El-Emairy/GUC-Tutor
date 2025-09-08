@@ -8,8 +8,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
+        <main className="min-h-screen bg-slate-800">
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   );
