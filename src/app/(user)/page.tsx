@@ -1,3 +1,4 @@
+import { ActionButton } from "@/components/auth/action-buuton";
 import { Button } from "@/components/ui/button";
 
 const Home = () => {
@@ -8,9 +9,7 @@ const Home = () => {
         GUC Tutor is tailor made for you, first year students, to make the start
         of your journey of becoming an Engineer as smooth as possible.
       </p>
-      <Button variant="action" className="cursor-pointer">
-        Let's Get Started
-      </Button>
+      <ActionButton variant={"action"} text="Let's get started !" url="/*" />
     </main>
   );
 };

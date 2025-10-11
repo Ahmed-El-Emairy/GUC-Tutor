@@ -1,20 +1,18 @@
-import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
+import { ActionButton } from "@/components/auth/action-buuton";
 
 export const Nav = () => {
   return (
     <nav className="sm:flex flex-row gap-2 hidden">
-      <Button variant="secondary" className="cursor-pointer">
-        Explore !
-      </Button>
+      <ActionButton variant="secondary" text="Explore !" url="/*" />
       {/* TODO: Make the button group only show if the user is not logged in */}
       <ButtonGroup>
-        <Button className="cursor-pointer" variant="default">
-          Login
-        </Button>
-        <Button variant="secondary" className="cursor-pointer">
-          Register
-        </Button>
+        <ActionButton variant="default" text="Login" url="/auth/login" />
+        <ActionButton
+          variant="secondary"
+          text="Register"
+          url="/auth/register"
+        />
       </ButtonGroup>
     </nav>
   );
