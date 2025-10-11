@@ -71,8 +71,10 @@ export const Footer = () => {
           </ItemActions>
         </Item>
       </div>
-      <div className="flex-1 flex justify-center items-center text-slate-50 text-3xl">
-        © 2025 GUC Tutor
+      <div className="flex-1 flex justify-center items-center ">
+        <span className="text-slate-50 text-3xl hover:text-slate-200 transition-colors cursor-pointer">
+          © 2025 GUC Tutor
+        </span>
       </div>
     </footer>
   );
