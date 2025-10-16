@@ -8,7 +8,10 @@ import {
 } from "@/components/ui/sheet";
 import { ActionButton } from "@/components/auth/action-buuton";
 import { ButtonGroup } from "@/components/ui/button-group";
-export const MobileNav = () => {
+import { currentUser } from "@/lib/auth";
+import { UserProfileIcon } from "@/components/home/user-profile";
+export const MobileNav = async () => {
+  const user = await currentUser();
   return (
     <Sheet>
       <SheetTrigger className="flex sm:hidden">
@@ -18,16 +21,26 @@ export const MobileNav = () => {
         <SheetHeader>
           <SheetTitle className="text-center">Menu</SheetTitle>
           <div className="flex justify-center gap-4">
-            <ActionButton variant="secondary" text="Explore !" url="/*" />
-            {/* TODO: Make the button group only show if the user is not logged in */}
-            <ButtonGroup>
-              <ActionButton variant="default" text="Login" url="/auth/login" />
-              <ActionButton
-                variant="secondary"
-                text="Register"
-                url="/auth/register"
-              />
-            </ButtonGroup>
+            {user && <UserProfileIcon />}
+            <ActionButton
+              variant="secondary"
+              text="Explore !"
+              url="/material"
+            />
+            {!user && (
+              <ButtonGroup>
+                <ActionButton
+                  variant="default"
+                  text="Login"
+                  url="/auth/login"
+                />
+                <ActionButton
+                  variant="secondary"
+                  text="Register"
+                  url="/auth/register"
+                />
+              </ButtonGroup>
+            )}
           </div>
         </SheetHeader>
       </SheetContent>
