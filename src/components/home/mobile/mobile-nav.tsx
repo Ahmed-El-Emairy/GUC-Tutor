@@ -12,6 +12,7 @@ import { currentUser } from "@/lib/auth";
 import { UserProfileIcon } from "@/components/home/user-profile";
 export const MobileNav = async () => {
   const user = await currentUser();
+  const isAdmin = user?.role === "ADMIN";
   return (
     <Sheet>
       <SheetTrigger className="flex sm:hidden">
@@ -27,6 +28,13 @@ export const MobileNav = async () => {
               text="Explore !"
               url="/material"
             />
+            {isAdmin && (
+              <ActionButton
+                variant="action"
+                text="Dashboard"
+                url="/dashboard"
+              />
+            )}
             {!user && (
               <ButtonGroup>
                 <ActionButton
